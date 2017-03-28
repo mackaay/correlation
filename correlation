@@ -1,0 +1,12 @@
+
+
+attach(correlation)
+plot(ddPCR, Raw,main='Correlation of miR-223', xlab='ddPCR', ylab='Raw', pch=19, cex=1.2)
+plot(ddPCR, RUVIII,main='Correlation of miR-223', xlab='ddPCR', ylab='RUVIII', pch=19, cex=1.2)
+plot(RUVIII, Raw,main='Correlation of miR-223', xlab='RUVIII', ylab='Raw', pch=19, cex=1.2)
+
+cor(correlation$ddPCR, correlation$Raw, method='pearson')
+cor.test(correlation$ddPCR, correlation$Raw, method='pearson')
+
+cor(correlation$ddPCR, correlation$RUVIII, method='pearson')
+cor.test(correlation$ddPCR, correlation$RUVIII, method='pearson')
