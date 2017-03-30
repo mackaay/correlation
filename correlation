@@ -1,8 +1,10 @@
-
-
-attach(correlation)
+#miR-223#
+ddPCR <- correlation$ddPCR
+Raw <- correlation$Raw
+RUVIII <- correlation$RUVIII
 plot(ddPCR, Raw,main='Correlation of miR-223', xlab='ddPCR', ylab='Raw', pch=19, cex=1.2)
 plot(ddPCR, RUVIII,main='Correlation of miR-223', xlab='ddPCR', ylab='RUVIII', pch=19, cex=1.2)
+
 plot(RUVIII, Raw,main='Correlation of miR-223', xlab='RUVIII', ylab='Raw', pch=19, cex=1.2)
 
 cor(correlation$ddPCR, correlation$Raw, method='pearson')
@@ -10,3 +12,18 @@ cor.test(correlation$ddPCR, correlation$Raw, method='pearson')
 
 cor(correlation$ddPCR, correlation$RUVIII, method='pearson')
 cor.test(correlation$ddPCR, correlation$RUVIII, method='pearson')
+
+
+#remove zero value of ddPCR#
+correlation_remove <- correlation[-c(1,2,4,5,6,13,14,17,18),]
+ddPCR_remove <- correlation_remove$ddPCR
+Raw_remove <- correlation_remove$Raw
+RUVIII_remove <- correlation_remove$RUVIII
+plot(ddPCR_remove, Raw_remove,main='Correlation of miR-223 (without default value in ddPCR)', xlab='ddPCR', ylab='Raw', pch=19, cex=1.2)
+plot(ddPCR_remove, RUVIII_remove,main='Correlation of miR-223 (without default value in ddPCR)', xlab='ddPCR', ylab='RUVIII', pch=19, cex=1.2)
+
+cor(correlation_remove$ddPCR, correlation_remove$Raw, method='pearson')
+cor.test(correlation_remove$ddPCR, correlation_remove$Raw, method='pearson')
+
+cor(correlation_remove$ddPCR, correlation_remove$RUVIII, method='pearson')
+cor.test(correlation_remove$ddPCR, correlation_remove$RUVIII, method='pearson')
