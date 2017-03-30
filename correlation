@@ -1,11 +1,18 @@
+
+
 #miR-223#
 ddPCR <- correlation$ddPCR
 Raw <- correlation$Raw
 RUVIII <- correlation$RUVIII
 plot(ddPCR, Raw,main='Correlation of miR-223', xlab='ddPCR', ylab='Raw', pch=19, cex=1.2)
+text(ddPCR, Raw, labels = miRNA, cex = 0.5, pos=1, col = 'royalblue')
+
+
 plot(ddPCR, RUVIII,main='Correlation of miR-223', xlab='ddPCR', ylab='RUVIII', pch=19, cex=1.2)
+text(ddPCR, RUVIII, labels = miRNA, cex = 0.5, pos=1, col = 'royalblue')
 
 plot(RUVIII, Raw,main='Correlation of miR-223', xlab='RUVIII', ylab='Raw', pch=19, cex=1.2)
+
 
 cor(correlation$ddPCR, correlation$Raw, method='pearson')
 cor.test(correlation$ddPCR, correlation$Raw, method='pearson')
@@ -20,7 +27,9 @@ ddPCR_remove <- correlation_remove$ddPCR
 Raw_remove <- correlation_remove$Raw
 RUVIII_remove <- correlation_remove$RUVIII
 plot(ddPCR_remove, Raw_remove,main='Correlation of miR-223 (without default value in ddPCR)', xlab='ddPCR', ylab='Raw', pch=19, cex=1.2)
+text(ddPCR_remove, Raw_remove, labels = miRNA, cex = 0.5, pos=1, col = 'royalblue')
 plot(ddPCR_remove, RUVIII_remove,main='Correlation of miR-223 (without default value in ddPCR)', xlab='ddPCR', ylab='RUVIII', pch=19, cex=1.2)
+text(ddPCR_remove, RUVIII_remove, labels = miRNA, cex = 0.5, pos=1, col = 'royalblue')
 
 cor(correlation_remove$ddPCR, correlation_remove$Raw, method='pearson')
 cor.test(correlation_remove$ddPCR, correlation_remove$Raw, method='pearson')
